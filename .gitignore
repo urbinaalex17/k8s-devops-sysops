@@ -1,2 +1,4 @@
 #Ignore local .state files
 iac/*.tfstate
+iac/.terraform
+initial-scripts/*.zip
