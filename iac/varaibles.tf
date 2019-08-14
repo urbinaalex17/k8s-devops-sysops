@@ -4,10 +4,13 @@ variable "gcp_region" {
 variable "gcp_zone" {
     description = "GCP Zone"
 }
-variable "k8s_instance_type" {
-    description = "The instance type of the K8s Master and Node instances"
+variable "k8s_master_instance_type" {
+    description = "The instance type of the K8s Master"
+}
+variable "k8s_node_instance_type" {
+    description = "The instance type of the K8s Nodes"
 }
 variable "k8s_image" {
     description = "Boot Disk for K8s Master and Node"
-    default = "ubuntu-1804-bionic-v20190628"
+    default = "centos-7-v20190729"
 }
