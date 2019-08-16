@@ -10,4 +10,9 @@ From the service account key page in the Cloud Console choose an existing accoun
 
 export GOOGLE_CLOUD_KEYFILE_JSON={{path}}
 
+## Troubleshooting
+You cannot use both SSH Keys and OS Login to connect to an instance. 
+If OS Login is enabled, then connecting with metadata-based SSH keys is disabled.
+
+If you had an issue with Ansible please read this [documentation](https://cloud.google.com/compute/docs/instances/managing-instance-access#enable_oslogin) to sort it out. 
 
