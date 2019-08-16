@@ -23,6 +23,11 @@ resource "google_compute_instance" "k8s_master_01" {
     access_config {
     }
   }
+
+  metadata = {
+    sshKeys = "${var.ssh_user}:${file(var.ssh_pub_key_file)}"
+  }
+
 }
 
 resource "google_compute_instance" "k8s_node_01" {
@@ -40,6 +45,11 @@ resource "google_compute_instance" "k8s_node_01" {
     access_config {
     }
   }
+
+  metadata = {
+    sshKeys = "${var.ssh_user}:${file(var.ssh_pub_key_file)}"
+  }
+
 }
 
 resource "google_compute_instance" "k8s_node_02" {
@@ -57,4 +67,9 @@ resource "google_compute_instance" "k8s_node_02" {
     access_config {
     }
   }
+  
+  metadata = {
+    sshKeys = "${var.ssh_user}:${file(var.ssh_pub_key_file)}"
+  }
+  
 }
