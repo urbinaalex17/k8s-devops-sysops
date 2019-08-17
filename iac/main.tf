@@ -13,7 +13,7 @@ resource "google_compute_firewall" "k8s_firewall" {
 
   allow {
     protocol = "tcp"
-    ports    = ["22", "80"]
+    ports    = ["22", "80","2379"]
   }
 }
 

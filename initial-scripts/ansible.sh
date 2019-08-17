@@ -1,2 +1,3 @@
 #!/bin/bash
-sudo apt install ansible -y
+# Install ansible via pip
+sudo pip install ansible
