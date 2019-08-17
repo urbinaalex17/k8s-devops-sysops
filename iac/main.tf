@@ -13,13 +13,31 @@ resource "google_compute_firewall" "k8s_firewall" {
 
   allow {
     protocol = "tcp"
-    ports    = ["22", "80","2379"]
+    ports    = ["22", "80"]
   }
 }
+
+resource "google_compute_firewall" "k8s_firewall_allow_internal" {
+  name    = "k8s-allow-internal-traffic"
+  network = "${google_compute_network.k8s_network.name}"
+
+  allow {
+    protocol = "all"
+  }
+
+  source_ranges = ["${data.google_compute_subnetwork.k8s_subnetwork_data.ip_cidr_range}"]
+
+}
+
 
 resource "google_compute_network" "k8s_network" {
   name                    = "k8s-network"
   auto_create_subnetworks = "true"
+}
+
+data "google_compute_subnetwork" "k8s_subnetwork_data" {
+  name = "${google_compute_network.k8s_network.name}"
+  region = "${var.gcp_region}"
 }
 
 resource "google_compute_instance" "k8s_master_01" {
