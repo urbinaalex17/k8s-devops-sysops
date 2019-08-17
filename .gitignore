@@ -5,4 +5,4 @@ iac/.terraform
 iac/terraform.tfvars
 initial-scripts/*.zip
 */.*.swp
-../ansible/hosts
+ansible/hosts
