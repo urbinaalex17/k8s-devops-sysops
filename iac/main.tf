@@ -3,6 +3,20 @@ provider "google" {
   zone    = "${var.gcp_zone}"
 }
 
+resource "google_compute_firewall" "k8s_firewall" {
+  name    = "k8s-allow-ssh-icmp-http"
+  network = "${google_compute_network.k8s_network.name}"
+
+  allow {
+    protocol = "icmp"
+  }
+
+  allow {
+    protocol = "tcp"
+    ports    = ["22", "80"]
+  }
+}
+
 resource "google_compute_network" "k8s_network" {
   name                    = "k8s-network"
   auto_create_subnetworks = "true"
