@@ -1,0 +1,9 @@
+---
+- name: "Playbook that install Kubernetes"
+  hosts: "{{ target }}"
+  become: true
+  roles:
+    - install-docker
+    - install-kubernetes
+  vars:
+    kubernetes_allow_pods_on_master: false
