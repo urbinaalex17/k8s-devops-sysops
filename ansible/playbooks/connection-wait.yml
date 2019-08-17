@@ -1,5 +1,6 @@
 - hosts: '{{ target }}'
   become: yes
+  gather_facts: no
   tasks:
   - name: Wait 300 seconds for port 22 to become open and contain "OpenSSH"
     wait_for:
