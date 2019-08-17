@@ -4,3 +4,4 @@ iac/*.tfstate.backup
 iac/.terraform
 iac/terraform.tfvars
 initial-scripts/*.zip
+*/.*.swp
