@@ -22,3 +22,7 @@ variable "ssh_pub_key_file" {
     description = "SSH Public File to connect to the instances"
     default = "../keypairs/KUBERNETES-KEYPAIR.pub"
 }
+variable "ssh_priv_key_file" {
+    description = "SSH Private File to connect to the instances"
+    default = "../keypairs/KUBERNETES-KEYPAIR"
+}
