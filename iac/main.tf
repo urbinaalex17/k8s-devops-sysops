@@ -105,3 +105,47 @@ resource "google_compute_instance" "k8s_node_02" {
   }
   
 }
+
+resource "google_compute_instance" "jenkins_master_01" {
+  name         = "jenkins-master-01"
+  machine_type = "${var.jenkins_master_instance_type}"
+
+  boot_disk {
+    initialize_params {
+      image = "${var.jenkins_image}"
+    }
+  }
+
+  network_interface {
+    network       = "${google_compute_network.k8s_network.self_link}"
+    access_config {
+    }
+  }
+  
+  metadata = {
+    sshKeys = "${var.ssh_user}:${file(var.ssh_pub_key_file)}"
+  }
+  
+}
+
+resource "google_compute_instance" "jenkins_slave_01" {
+  name         = "jenkins-slave-01"
+  machine_type = "${var.jenkins_slave_instance_type}"
+
+  boot_disk {
+    initialize_params {
+      image = "${var.jenkins_image}"
+    }
+  }
+
+  network_interface {
+    network       = "${google_compute_network.k8s_network.self_link}"
+    access_config {
+    }
+  }
+  
+  metadata = {
+    sshKeys = "${var.ssh_user}:${file(var.ssh_pub_key_file)}"
+  }
+  
+}
