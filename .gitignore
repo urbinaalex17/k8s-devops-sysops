@@ -6,3 +6,4 @@ iac/terraform.tfvars
 initial-scripts/*.zip
 */.*.swp
 ansible/hosts
+policy.json
