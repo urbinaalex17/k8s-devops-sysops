@@ -26,3 +26,8 @@ variable "ssh_priv_key_file" {
     description = "SSH Private File to connect to the instances"
     default = "../keypairs/KUBERNETES-KEYPAIR"
 }
+
+variable "ansible_cfg" {
+    description = "Ansible Configuration File"
+    default = "../ansible/ansible.cfg"
+}
