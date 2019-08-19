@@ -1,0 +1,10 @@
+---
+- name: "Install Jenkins CI"
+  hosts: "{{ target }}"
+  roles:
+    - role: install-java
+      become: yes
+    - role: install-jenkins
+      become: yes
+  vars:
+    jenkins_hostname: "{{ ansible_hostname }}"
