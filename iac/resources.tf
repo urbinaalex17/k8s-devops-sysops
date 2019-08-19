@@ -12,6 +12,12 @@ ${google_compute_instance.k8s_node_01.network_interface[0].access_config[0].nat_
 
 [k8s-node-02]
 ${google_compute_instance.k8s_node_02.network_interface[0].access_config[0].nat_ip} kubernetes_role="node"
+
+[jenkins-master-01]
+${google_compute_instance.jenkins_master_01.network_interface[0].access_config[0].nat_ip}
+
+[jenkins-slave-01]
+${google_compute_instance.jenkins_slave_01.network_interface[0].access_config[0].nat_ip}
 EOF
     EOD
   }
